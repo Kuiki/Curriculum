@@ -16,11 +16,13 @@ class CreatePortfolioTable extends Migration
         Schema::create('portfolio', function (Blueprint $table) {
             $table->increments('id');
             $table->string('title');
-            $table->string('content');
-            $table->string('image');
-            $table->string('site');
+            $table->text('content')->nullable();
+            $table->string('image')->nullable();
+            $table->string('site')->nullable();
+            $table->unsignedInteger('user');
             $table->unsignedInteger('category')->default(1);
-            $table->foreing('category')->references('id')->on('categories');
+            $table->foreign('category')->references('id')->on('categories');
+            $table->foreign('user')->references('id')->on('users');
             $table->timestamps();
         });
     }

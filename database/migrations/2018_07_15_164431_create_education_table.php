@@ -15,12 +15,14 @@ class CreateEducationTable extends Migration
     {
         Schema::create('education', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('name');
+            $table->string('course');
             $table->string('school');
             $table->string('state');
             $table->date('startDate');
             $table->date('endDate');
-            $table->date('active');
+            $table->unsignedInteger('user');
+            $table->foreign('user')->references('id')->on('users');
+            $table->boolean('active');
             $table->timestamps();
         });
     }

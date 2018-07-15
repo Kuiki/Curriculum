@@ -15,12 +15,14 @@ class CreateExperiensTable extends Migration
     {
         Schema::create('experiens', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('empresa');
+            $table->string('company');
             $table->string('job');
             $table->date('startDate');
             $table->date('endDate');
-            $table->string('description');
-            $table->date('active');
+            $table->string('description')->nullable();
+            $table->unsignedInteger('user');
+            $table->foreign('user')->references('id')->on('users');
+            $table->boolean('active');
             $table->timestamps();
         });
     }
