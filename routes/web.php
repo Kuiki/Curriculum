@@ -23,3 +23,7 @@ Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/demo', function() {
     return view ('demo.index');
 });
+
+Route::get('/intranet', function() {
+	return view ('intranet.index');
+});
