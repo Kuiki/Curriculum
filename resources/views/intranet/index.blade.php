@@ -7,7 +7,7 @@
   <link rel="icon" type="image/png" href=" {{ asset('dashboard/img/favicon.png') }}">
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
   <title>
-    Material Dashboard by Creative Tim
+    Material Dashboard
   </title>
   <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0, shrink-to-fit=no' name='viewport' />
   <!--     Fonts and icons     -->
@@ -19,7 +19,7 @@
 
 <body class="">
   <div class="wrapper ">
-    <div class="sidebar" data-color="purple" data-background-color="white">
+    <div class="sidebar" data-color="orange" data-background-color="black" data-image="https://demos.creative-tim.com/vue-material-dashboard/img/sidebar-3.3a54f533.jpg">
       <!--
         Tip 1: You can change the color of the sidebar using: data-color="purple | azure | green | orange | danger"
 
@@ -39,6 +39,22 @@
             </a>
           </li>
           <!-- your sidebar here -->
+          @isset ($sections)
+            @foreach ($sections as $icon => $section)
+
+              <li class="nav-item">
+                <a class="nav-link" href="#0">
+                  <i class="material-icons">{{ $icon }}</i>
+                  <p>{{ $section }}</p>
+                </a>
+              </li>
+              
+            @endforeach
+              
+          @endisset
+          
+
+
         </ul>
       </div>
     </div>
@@ -58,8 +74,8 @@
           <div class="collapse navbar-collapse justify-content-end">
             <ul class="navbar-nav">
               <li class="nav-item">
-                <a class="nav-link" href="#pablo">
-                  <i class="material-icons">notifications</i> Notifications
+                <a class="nav-link" href="#">
+                  Cerrar Sesión
                 </a>
               </li>
               <!-- your navbar here -->

@@ -14,16 +14,18 @@
 Route::get('/', function () {
     return view('welcome');
 });
-
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+
+Route::group(['middleware' => 'auth'], function(){
+	Route::get('/intranet', 'Intranet\HomeController@index');
+});
 
 //Ruta para ver la demo
 Route::get('/demo', function() {
     return view ('demo.index');
 });
 
-Route::get('/intranet', function() {
-	return view ('intranet.index');
-});
+
+
