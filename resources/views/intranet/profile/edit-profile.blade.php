@@ -7,6 +7,18 @@
 
 @endsection
 
+@section('profile')
+
+  active
+
+@endsection
+
+@section('title-section')
+
+  Datos Personales >> editar
+
+@endsection
+
 
 @section('content')
 
@@ -14,7 +26,7 @@
     <div class="row">
       <div class="col-md-8">
         <div class="card">
-          <div class="card-header card-header-warning">
+          <div class="card-header card-header-primary">
             <h4 class="card-title">Mis Datos Personales</h4>
             <p class="card-category">Completa tu perfil</p>
           </div>
@@ -87,7 +99,8 @@
                   </div>
                 </div>
               </div>
-              <button type="submit" class="btn btn-warning pull-right">Actualizar Perfil</button>
+              <button type="submit" class="btn btn-primary pull-left">Actualizar Perfil</button>
+              <a href="{{ url('intranet/perfil/') }}" class="btn btn-info pull-right">Cancelar</a>
               <div class="clearfix"></div>
             </form>
           </div>
@@ -106,7 +119,7 @@
             <p class="card-description">
               Don't be scared of the truth because we need to restart the human foundation in truth And I love you like Kanye loves Kanye I love Rick Owens’ bed design but the back is...
             </p>
-            <a href="#pablo" class="btn btn-warning btn-round">Follow</a>
+            <a href="#pablo" class="btn btn-primary btn-round">Follow</a>
           </div>
         </div>
       </div>

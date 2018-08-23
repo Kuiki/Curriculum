@@ -7,7 +7,7 @@
   <link rel="icon" type="image/png" href=" {{ asset('dashboard/img/favicon.png') }}">
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
   <title>
-    Material Dashboard
+        CURRICULUM
   </title>
   <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0, shrink-to-fit=no' name='viewport' />
   <!--     Fonts and icons     -->
@@ -22,7 +22,7 @@
 
 <body>
   <div class="wrapper ">
-    <div class="sidebar" data-color="orange" data-background-color="black" data-image="https://demos.creative-tim.com/vue-material-dashboard/img/sidebar-3.3a54f533.jpg">
+    <div class="sidebar" data-color="purple" data-background-color="black" data-image="https://demos.creative-tim.com/vue-material-dashboard/img/sidebar-3.3a54f533.jpg">
       <!--
         Tip 1: You can change the color of the sidebar using: data-color="purple | azure | green | orange | danger"
 
@@ -30,20 +30,20 @@
     -->
       <div class="logo">
         <a href="http://www.creative-tim.com" class="simple-text logo-normal">
-          Creative Tim
+          Mi Curriculum
         </a>
       </div>
       <div class="sidebar-wrapper">
         <ul class="nav">
-          <li class="nav-item active  ">
-            <a class="nav-link" href="#0">
+          <li class="nav-item @yield('dashboard')">
+            <a class="nav-link" href="{{ url('intranet') }}">
               <i class="material-icons">dashboard</i>
               <p>Dashboard</p>
             </a>
           </li>
           <!-- your sidebar here -->
                       
-              <li class="nav-item">
+              <li class="nav-item @yield('profile')">
                 <a class="nav-link" href="{{ url('intranet/perfil') }}">
                   <i class="material-icons">person</i>
                   <p>Datos Personales</p>
@@ -51,7 +51,7 @@
               </li>
               
             
-              <li class="nav-item">
+              <li class="nav-item @yield('education')">
                 <a class="nav-link" href="{{ url('intranet/estudios') }}">
                   <i class="material-icons">library_books</i>
                   <p>Estudios</p>
@@ -59,7 +59,7 @@
               </li>
               
             
-              <li class="nav-item">
+              <li class="nav-item @yield('experiens')">
                 <a class="nav-link" href="{{ url('intranet/experiencia') }}">
                   <i class="material-icons">bubble_chart</i>
                   <p>Experiencia</p>
@@ -67,10 +67,17 @@
               </li>
               
             
-              <li class="nav-item">
+              <li class="nav-item @yield('portfolio')">
                 <a class="nav-link" href="{{ url('intranet/trabajos') }}">
                   <i class="material-icons">archive</i>
                   <p>Mis Trabajos</p>
+                </a>
+              </li>
+
+              <li class="nav-item @yield('settings')">
+                <a class="nav-link" href="#">
+                  <i class="material-icons">settings</i>
+                  <p>Ajustes</p>
                 </a>
               </li>
 
@@ -82,7 +89,11 @@
       <nav class="navbar navbar-expand-lg navbar-transparent navbar-absolute fixed-top ">
         <div class="container-fluid">
           <div class="navbar-wrapper">
-            <a class="navbar-brand" href="#pablo">Dashboard</a>
+            <a class="navbar-brand" href="#pablo">
+                @section('title-section')
+                    Dashboard 
+                @show
+            </a>
           </div>
           <button class="navbar-toggler" type="button" data-toggle="collapse" aria-controls="navigation-index" aria-expanded="false" aria-label="Toggle navigation">
             <span class="sr-only">Toggle navigation</span>
@@ -143,7 +154,7 @@
           <!-- your content here -->
 
           @yield('content')
-
+          @yield('modal')
           <!-- end your content -->
 
         </div>
@@ -185,6 +196,7 @@
   <!-- Control Center for Material Dashboard: parallax effects, scripts for the example pages etc -->
   <script src="{{ asset('dashboard/js/material-dashboard.min.js?v=2.1.0') }}" type="text/javascript"></script>
 
+  <script src="{{ asset('dashboard/demo/demo.js') }}"></script>
 
   @yield('script')
 </body>

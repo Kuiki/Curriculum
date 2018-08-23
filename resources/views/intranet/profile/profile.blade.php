@@ -7,6 +7,17 @@
 
 @endsection
 
+@section('profile')
+
+  active
+
+@endsection
+
+@section('title-section')
+
+  Datos Personales
+
+@endsection
 
 @section('content')
 
@@ -14,7 +25,7 @@
     <div class="row">
       <div class="col-md-8">
         <div class="card">
-          <div class="card-header card-header-warning">
+          <div class="card-header card-header-primary">
             <h4 class="card-title">Mis Datos Personales</h4>
             <p class="card-category">Completa tu perfil</p>
           </div>
@@ -87,7 +98,7 @@
                   </div>
                 </div>
               </div>
-              <button type="submit" class="btn btn-warning pull-right">Actualizar Perfil</button>
+              <a href="{{ url('intranet/editar-perfil/'.$user->id) }}" class="btn btn-primary pull-right">Editar Perfil</a>
               <div class="clearfix"></div>
             </form>
           </div>
