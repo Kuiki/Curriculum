@@ -20,6 +20,18 @@ Route::get('/home', 'HomeController@index')->name('home');
 
 Route::group(['middleware' => 'auth'], function(){
 	Route::get('/intranet', 'Intranet\HomeController@index');
+
+	Route::get('/intranet/perfil', 'Intranet\UserController@index'); 
+	Route::get('/intranet/editar-perfil/{user}', 'Intranet\UserController@edit');
+	Route::put('/intranet/editar-perfil/{user}', 'Intranet\UserController@store');
+
+	Route::get('/intranet/estudios', 'Intranet\EducationController@index');
+
+	Route::get('/intranet/experiencia', 'Intranet\ExperiensController@index');
+
+	Route::get('/intranet/trabajos', 'Intranet\PortfolioController@index');
+
+
 });
 
 //Ruta para ver la demo
